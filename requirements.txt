@@ -1,0 +1,10 @@
+bokeh
+datashader
+gensim
+numpy
+pandas
+spacy
+tqdm
+seaborn
+matplotlib
+jupyter
