@@ -31,4 +31,14 @@ If you want to run LargeVis, you'll have to install and run that separately in a
 ### Running notebooks
 To run the notebook files, just navigate to the notebooks directory and run `jupyter notebook` from the command line. This will open the Jupyter UI in your default web browser, and you should be able to access any of the notebooks from there.
 
+## Datasets
+
+### Amazon review data
+
+Thanks to [Julian McAuley](https://cseweb.ucsd.edu/~jmcauley/) for sharing this data. From the [dataset homepage](http://jmcauley.ucsd.edu/data/amazon/):
+
+ > This dataset contains product reviews and metadata from Amazon, including 142.8 million reviews spanning May 1996 - July 2014...includes reviews (ratings, text, helpfulness votes), product metadata (descriptions, category information, price, brand, and image features), and links (also viewed/also bought graphs).
+
+See the "Introduction to Amazon review data" for an overview of the data format and how we're working with it.
+
 
