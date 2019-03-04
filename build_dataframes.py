@@ -25,13 +25,13 @@ for filename in tqdm(glob.glob('data/amazon_products/Reviews*')):
         df['reviewRatings'] = df.helpful.progress_apply(lambda x: x[1])
         df['helpfulRatings'] = df.helpful.progress_apply(lambda x: x[0])
         del df['helpful']
-        text = [doc for doc in df['reviewText']]
+        text = df['reviewText'].values
         df.to_pickle(pickle_path)
+        n_docs = len(df)
         del df
-        vectors = []
+        vectors = numpy.empty((n_docs, 300))
         with gzip.open(nlp_path, 'wb') as out:
-            for doc in tqdm(nlp.pipe(text, batch_size=10000)):
-                vectors.append(doc.vector)
+            for i, doc in enumerate(tqdm(nlp.pipe(text, batch_size=10000))):
+                vectors[i] = doc.vector
                 out.write(f'{json.dumps(doc.print_tree())}\n'.encode('utf8'))
-        vectors = numpy.array(vectors)
         numpy.save(npy_path, vectors)
