@@ -13,6 +13,8 @@ tqdm.pandas()
 print("Loading spacy...")
 nlp = spacy.load('en_core_web_lg')
 
+print('a change!')
+
 for filename in tqdm(glob.glob('data/amazon_products/Reviews*')):
     dataset_name = re.findall(r'(?<=reviews_)(.*)(?=_5)', filename)[0]
     base_path = f'data/amazon_products/dataframes/{dataset_name}'
